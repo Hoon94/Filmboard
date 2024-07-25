@@ -46,6 +46,12 @@ extension UIImageView {
         image = placeholder
         
         guard let url = url else { return }
+        
+        if let cachedImage = ImageCacheManager.shared.loadCachedData(for: url.absoluteString) {
+            image = cachedImage
+            
+            return
+        }
                 
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             if let error = error, (error as? URLError)?.code != .cancelled {
@@ -60,6 +66,7 @@ extension UIImageView {
                 return
             }
             
+            ImageCacheManager.shared.saveCacheData(of: image, for: url.absoluteString)
             if url == self?.savedUrl {
                 DispatchQueue.main.async {
                     self?.image = image

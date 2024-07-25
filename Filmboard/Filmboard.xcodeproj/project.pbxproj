@@ -34,6 +34,8 @@
 		789553112C51DD2D00C43F1B /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789553102C51DD2D00C43F1B /* UIImageView+Ext.swift */; };
 		789553132C522FB400C43F1B /* TMDBInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 789553122C522FB400C43F1B /* TMDBInfo.plist */; };
 		789553152C5230C800C43F1B /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789553142C5230C800C43F1B /* APIKey.swift */; };
+		789553192C52356B00C43F1B /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789553182C52356B00C43F1B /* Cache.swift */; };
+		7895531B2C52394F00C43F1B /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7895531A2C52394F00C43F1B /* ImageCacheManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		789553102C51DD2D00C43F1B /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		789553122C522FB400C43F1B /* TMDBInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TMDBInfo.plist; sourceTree = "<group>"; };
 		789553142C5230C800C43F1B /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		789553182C52356B00C43F1B /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		7895531A2C52394F00C43F1B /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,9 +134,10 @@
 		789552D92C50F47200C43F1B /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				789553032C51359200C43F1B /* Entities */,
 				789553092C514A3300C43F1B /* UseCase */,
 				789553062C51421100C43F1B /* Service */,
-				789553032C51359200C43F1B /* Entities */,
+				789553162C52354B00C43F1B /* Utils */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -149,8 +154,8 @@
 		789552F22C5108B800C43F1B /* DiscoverScene */ = {
 			isa = PBXGroup;
 			children = (
-				789552F62C5125D000C43F1B /* View */,
 				789552F52C5125C200C43F1B /* ViewModel */,
+				789552F62C5125D000C43F1B /* View */,
 			);
 			path = DiscoverScene;
 			sourceTree = "<group>";
@@ -194,8 +199,8 @@
 		789553032C51359200C43F1B /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				789553042C5135DC00C43F1B /* MovieFront.swift */,
 				7895530C2C514C1800C43F1B /* MovieList.swift */,
+				789553042C5135DC00C43F1B /* MovieFront.swift */,
 				7895530E2C514D4B00C43F1B /* GenreModel.swift */,
 			);
 			path = Entities;
@@ -216,6 +221,23 @@
 				7895530A2C514A4900C43F1B /* MovieAPI.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		789553162C52354B00C43F1B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				789553172C52355200C43F1B /* Cache */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		789553172C52355200C43F1B /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				7895531A2C52394F00C43F1B /* ImageCacheManager.swift */,
+				789553182C52356B00C43F1B /* Cache.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,8 +330,10 @@
 			files = (
 				789552FC2C51288E00C43F1B /* UICollectionViewHelper.swift in Sources */,
 				7895530F2C514D4B00C43F1B /* GenreModel.swift in Sources */,
+				7895531B2C52394F00C43F1B /* ImageCacheManager.swift in Sources */,
 				789552C82C4FB27D00C43F1B /* MainTabBarController.swift in Sources */,
 				789552F42C5125BA00C43F1B /* DiscoverViewController.swift in Sources */,
+				789553192C52356B00C43F1B /* Cache.swift in Sources */,
 				7895530B2C514A4900C43F1B /* MovieAPI.swift in Sources */,
 				789553022C51317200C43F1B /* DiscoverCollectionViewCell.swift in Sources */,
 				789553112C51DD2D00C43F1B /* UIImageView+Ext.swift in Sources */,
