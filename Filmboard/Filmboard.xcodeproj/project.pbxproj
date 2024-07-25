@@ -31,6 +31,7 @@
 		7895530B2C514A4900C43F1B /* MovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7895530A2C514A4900C43F1B /* MovieAPI.swift */; };
 		7895530D2C514C1800C43F1B /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7895530C2C514C1800C43F1B /* MovieList.swift */; };
 		7895530F2C514D4B00C43F1B /* GenreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7895530E2C514D4B00C43F1B /* GenreModel.swift */; };
+		789553112C51DD2D00C43F1B /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789553102C51DD2D00C43F1B /* UIImageView+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		7895530A2C514A4900C43F1B /* MovieAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPI.swift; sourceTree = "<group>"; };
 		7895530C2C514C1800C43F1B /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 		7895530E2C514D4B00C43F1B /* GenreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreModel.swift; sourceTree = "<group>"; };
+		789553102C51DD2D00C43F1B /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				789552FA2C5127F400C43F1B /* Utils */,
+				789552FD2C5128AD00C43F1B /* ReusableCell.swift */,
+				789552FB2C51288E00C43F1B /* UICollectionViewHelper.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -177,8 +181,7 @@
 		789552FA2C5127F400C43F1B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				789552FD2C5128AD00C43F1B /* ReusableCell.swift */,
-				789552FB2C51288E00C43F1B /* UICollectionViewHelper.swift */,
+				789553102C51DD2D00C43F1B /* UIImageView+Ext.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				789552F42C5125BA00C43F1B /* DiscoverViewController.swift in Sources */,
 				7895530B2C514A4900C43F1B /* MovieAPI.swift in Sources */,
 				789553022C51317200C43F1B /* DiscoverCollectionViewCell.swift in Sources */,
+				789553112C51DD2D00C43F1B /* UIImageView+Ext.swift in Sources */,
 				789553082C51422900C43F1B /* APIService.swift in Sources */,
 				789552F82C5125F400C43F1B /* DiscoverViewModel.swift in Sources */,
 				789553002C512BE300C43F1B /* DiscoverCollectionHeaderView.swift in Sources */,

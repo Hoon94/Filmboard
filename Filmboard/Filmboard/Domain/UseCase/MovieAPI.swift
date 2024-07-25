@@ -13,6 +13,16 @@ extension APIService {
     static func configureUrlString(category: MovieListCategory, language: Language, page: Int) -> String {
         return "https://api.themoviedb.org/3/movie/\(category.key)?api_key=\(APIKey)&language=\(language.key)&page=\(page)"
     }
+    
+    static func configureUrlString(posterPath: String?) -> String? {
+        guard let posterPath = posterPath else { return nil }
+        
+        return "https://image.tmdb.org/t/p/original/\(posterPath)"
+    }
+    
+    static func configureUrlString(keyword: String, language: Language, page: Int) -> String {
+        return "https://api.themoviedb.org/3/search/movie?query=\(keyword)&api_key=\(APIKey)&language=\(language.key)&page=\(page)"
+    }
 }
 
 // MARK: - MovieListCategory

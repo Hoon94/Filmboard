@@ -15,28 +15,31 @@ class DiscoverCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     
     private let posterImageView = UIImageView().then {
-        $0.contentMode = .scaleAspectFit
         $0.image = UIImage(resource: .posterPlaceholder)
+        $0.contentMode = .scaleAspectFill
+        $0.layer.cornerRadius = 20
+        $0.layer.masksToBounds = true
+        $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     private let movieTitle = UILabel().then {
         $0.textColor = .white
         $0.numberOfLines = 3
+        $0.textAlignment = .center
         $0.minimumScaleFactor = 0.5
+        $0.adjustsFontSizeToFitWidth = true
         $0.font = .systemFont(ofSize: 15, weight: .medium)
     }
     
-    private lazy var stackView = UIStackView(arrangedSubviews: [posterImageView, movieTitle]).then {
-        $0.spacing = 0
-        $0.axis = .vertical
-        $0.alignment = .fill
-        $0.distribution = .fill
+    private lazy var stackView = UIStackView(arrangedSubviews: [movieTitle]).then {
+        $0.alignment = .center
     }
     
     // MARK: - Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configureCell()
         configureUI()
     }
     
@@ -46,27 +49,36 @@ class DiscoverCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Helpers
     
+    private func configureCell() {
+        backgroundColor = .systemIndigo
+        clipsToBounds = true
+        layer.cornerRadius = 20
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.white.cgColor
+    }
+    
     private func configureUI() {
-        contentView.addSubview(stackView)
-        stackView.snp.makeConstraints { make in
-            make.directionalEdges.equalToSuperview()
+        [posterImageView, stackView].forEach { contentView.addSubview($0) }
+        
+        posterImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.8)
+            make.directionalHorizontalEdges.equalToSuperview()
         }
         
-//        posterImageView.snp.makeConstraints { make in
-//            make.directionalHorizontalEdges.greaterThanOrEqualToSuperview()
-//            make.bottom.lessThanOrEqualToSuperview()
-//        }
-        
-//        movieTitle.setContentHuggingPriority(.required, for: .vertical)
-//        movieTitle.setContentCompressionResistancePriority(.required, for: .vertical)
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(posterImageView.snp.bottom).offset(4)
+            make.directionalHorizontalEdges.equalToSuperview().inset(6)
+            make.bottom.equalToSuperview().inset(4)
+        }
     }
     
     func setData(movie: MovieFront) {
         movieTitle.text = movie.title
         
-//        let posterPath = APIService.configureUrlString(posterPath: movie.posterPath)
-//        let placeholder = UIImage(resource: .posterPlaceholder)
-//        posterImageView.setImage(path: posterPath, placeholder: placeholder)
+        let posterPath = APIService.configureUrlString(posterPath: movie.posterPath)
+        let placeholder = UIImage(resource: .posterPlaceholder)
+        posterImageView.setImage(path: posterPath, placeholder: placeholder)
     }
 }
 

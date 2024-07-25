@@ -21,7 +21,7 @@ class DiscoverCollectionHeaderView: UIView {
     private let titleLabel = UILabel().then {
         $0.textColor = .white
         $0.numberOfLines = 0
-        $0.textAlignment = .left
+        $0.textAlignment = .center
         $0.font = .systemFont(ofSize: 40, weight: .bold)
         $0.text = "Discover Movies"
     }
@@ -59,6 +59,7 @@ class DiscoverCollectionHeaderView: UIView {
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.directionalHorizontalEdges.equalToSuperview().inset(20)
             make.bottom.equalToSuperview().inset(20)
+            make.height.equalTo(40)
         }
     }
     

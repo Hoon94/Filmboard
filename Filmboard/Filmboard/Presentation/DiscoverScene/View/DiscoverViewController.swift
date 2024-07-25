@@ -19,7 +19,7 @@ class DiscoverViewController: UIViewController {
     private let headerView = DiscoverCollectionHeaderView()
     
     private let flowLayout = UICollectionViewFlowLayout().then {
-        $0.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        $0.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20)
         $0.minimumInteritemSpacing = 20
         $0.minimumLineSpacing = 20
     }
@@ -43,19 +43,23 @@ class DiscoverViewController: UIViewController {
     private func configureView() {
         title = "Discover"
         view.backgroundColor = .background
-        dismissKeyboard()
+        navigationController?.setNavigationBarHidden(true, animated: true)
         
+        dismissKeyboard()
+        configureCollectionView()
+        viewModel.requestData(page: 1)
+    }
+    
+    private func configureCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        let customRefreshControl = UIRefreshControl().then {
+        let refreshControl = UIRefreshControl().then {
             $0.tintColor = .white
         }
         
-        collectionView.refreshControl = customRefreshControl
+        collectionView.refreshControl = refreshControl
         collectionView.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        
-        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     private func configureUI() {
@@ -64,7 +68,7 @@ class DiscoverViewController: UIViewController {
         headerView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.directionalHorizontalEdges.equalToSuperview()
-            make.height.equalTo(180)
+            make.height.equalToSuperview().multipliedBy(0.2)
         }
         
         collectionView.snp.makeConstraints { make in
@@ -75,7 +79,16 @@ class DiscoverViewController: UIViewController {
     }
     
     private func bindData() {
+        viewModel.movieListData
+            .observe(on: MainScheduler.instance)
+            .subscribe { [weak self] _ in
+                self?.collectionView.reloadData()
+            }
+            .disposed(by: disposeBag)
         
+        headerView.searchFieldCallBack = { [weak self] keyword in
+            self?.viewModel.requestData(keyword: keyword, page: 1)
+        }
     }
     
     private func dismissKeyboard() {
@@ -87,7 +100,7 @@ class DiscoverViewController: UIViewController {
     // MARK: - Selectors
     
     @objc private func refreshData() {
-//        viewModel.requestData(page: 1)
+        viewModel.requestData(page: 1)
         collectionView.refreshControl?.endRefreshing()
     }
     
@@ -100,7 +113,7 @@ class DiscoverViewController: UIViewController {
 
 extension DiscoverViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return viewModel.movieListData.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -108,7 +121,7 @@ extension DiscoverViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-//        cell.setData(movie: )
+        cell.setData(movie: viewModel.movieListData.value[indexPath.item])
         
         return cell
     }
@@ -127,4 +140,10 @@ extension DiscoverViewController: UICollectionViewDelegateFlowLayout {
 //        let id = viewModel.movieListData.value[indexPath.item].id
 //        navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
 //    }
+}
+
+// MARK: - Preview
+
+#Preview {
+    DiscoverViewController()
 }
