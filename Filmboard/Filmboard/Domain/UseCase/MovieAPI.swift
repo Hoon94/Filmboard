@@ -10,6 +10,8 @@ import Foundation
 // MARK: - APIService
 
 extension APIService {
+    static private let APIKey = Bundle.main.APIKey
+    
     static func configureUrlString(category: MovieListCategory, language: Language, page: Int) -> String {
         return "https://api.themoviedb.org/3/movie/\(category.key)?api_key=\(APIKey)&language=\(language.key)&page=\(page)"
     }
