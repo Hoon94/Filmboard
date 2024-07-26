@@ -136,10 +136,10 @@ extension DiscoverViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: itemWidth, height: itemWidth * 1.75)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let id = viewModel.movieListData.value[indexPath.item].id
-//        navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let id = viewModel.movieListData.value[indexPath.item].id
+        navigationController?.pushViewController(DetailViewController(id: id), animated: true)
+    }
 }
 
 // MARK: - Preview

@@ -58,4 +58,8 @@ struct APIService {
             return Disposables.create()
         }
     }
+    
+    // MARK: - Lifecycle
+    
+    private init() { }
 }

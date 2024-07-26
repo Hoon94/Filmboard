@@ -25,6 +25,10 @@ extension APIService {
     static func configureUrlString(keyword: String, language: Language, page: Int) -> String {
         return "https://api.themoviedb.org/3/search/movie?query=\(keyword)&api_key=\(APIKey)&language=\(language.key)&page=\(page)"
     }
+    
+    static func configureUrlString(id: Int, language: Language) -> String {
+        return "https://api.themoviedb.org/3/movie/\(id)?api_key=\(APIKey)&language=\(language)"
+    }
 }
 
 // MARK: - MovieListCategory
