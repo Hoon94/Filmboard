@@ -50,7 +50,7 @@ class DiscoverCollectionViewCell: UICollectionViewCell {
     // MARK: - Helpers
     
     private func configureCell() {
-        backgroundColor = .systemIndigo
+        backgroundColor = .lightBackground
         clipsToBounds = true
         layer.cornerRadius = 20
         layer.borderWidth = 1

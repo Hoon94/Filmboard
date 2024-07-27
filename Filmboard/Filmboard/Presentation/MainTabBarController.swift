@@ -38,7 +38,7 @@ class MainTabBarController: UITabBarController {
     
     private func configureViewController() {
         let discover = templateNavigationController(rootViewController: DiscoverViewController(), title: "Discover", image: "film", selectedImage: "film.fill")
-        let chart = templateNavigationController(rootViewController: UIViewController(), title: "Charts", image: "list.number", selectedImage: "list.number")
+        let chart = templateNavigationController(rootViewController: ChartViewController(), title: "Charts", image: "list.number", selectedImage: "list.number")
         let credit = templateNavigationController(rootViewController: UIViewController(), title: "Credit", image: "ellipsis", selectedImage: "Credits")
         
         delegate = self
@@ -61,4 +61,10 @@ extension MainTabBarController: UITabBarControllerDelegate {
         
         return true
     }
+}
+
+// MARK: - Preview
+
+#Preview {
+    MainTabBarController()
 }
