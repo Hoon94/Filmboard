@@ -101,6 +101,7 @@ class DiscoverViewController: UIViewController {
     
     @objc private func refreshData() {
         viewModel.requestData(page: 1)
+        headerView.searchField.text = nil
         collectionView.refreshControl?.endRefreshing()
     }
     

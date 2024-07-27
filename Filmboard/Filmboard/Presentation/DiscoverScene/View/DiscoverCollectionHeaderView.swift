@@ -26,7 +26,7 @@ class DiscoverCollectionHeaderView: UIView {
         $0.text = "Discover Movies"
     }
     
-    private let searchField = PaddingTextField().then {
+    let searchField = PaddingTextField().then {
         $0.textColor = .white
         $0.layer.cornerRadius = 20
         $0.backgroundColor = .lightBackground

@@ -23,9 +23,9 @@ class ChartViewController: UIViewController {
     }
     
     private let navigationAppearance = UINavigationBarAppearance().then {
+        $0.backgroundColor = .background
         $0.titleTextAttributes = [.foregroundColor: UIColor.white]
         $0.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        $0.backgroundColor = .background
     }
     
     // MARK: - Lifecycle
