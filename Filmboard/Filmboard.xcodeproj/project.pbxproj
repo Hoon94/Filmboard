@@ -46,6 +46,7 @@
 		78B1559C2C536A0300EC9102 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1559B2C536A0300EC9102 /* ChartViewModel.swift */; };
 		78B1559E2C536F6A00EC9102 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1559D2C536F6A00EC9102 /* ChartViewController.swift */; };
 		78B155A02C536F7B00EC9102 /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1559F2C536F7B00EC9102 /* ChartTableViewCell.swift */; };
+		78B155A52C573E4E00EC9102 /* CreditSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B155A42C573E4E00EC9102 /* CreditSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		78B1559B2C536A0300EC9102 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		78B1559D2C536F6A00EC9102 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		78B1559F2C536F7B00EC9102 /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
+		78B155A42C573E4E00EC9102 /* CreditSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,10 +146,11 @@
 		789552D82C50F45A00C43F1B /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				78B155982C53697F00EC9102 /* ChartScene */,
 				789552F92C5127E500C43F1B /* Common */,
 				789552F22C5108B800C43F1B /* DiscoverScene */,
 				7895531C2C5242A300C43F1B /* DetailScene */,
+				78B155982C53697F00EC9102 /* ChartScene */,
+				78B155A12C573D8400EC9102 /* CreditScene */,
 				789552C72C4FB27D00C43F1B /* MainTabBarController.swift */,
 			);
 			path = Presentation;
@@ -326,6 +329,30 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		78B155A12C573D8400EC9102 /* CreditScene */ = {
+			isa = PBXGroup;
+			children = (
+				78B155A32C573E0D00EC9102 /* ViewModel */,
+				78B155A22C573E0900EC9102 /* View */,
+			);
+			path = CreditScene;
+			sourceTree = "<group>";
+		};
+		78B155A22C573E0900EC9102 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		78B155A32C573E0D00EC9102 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				78B155A42C573E4E00EC9102 /* CreditSection.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -423,6 +450,7 @@
 				789553192C52356B00C43F1B /* Cache.swift in Sources */,
 				789553292C52560900C43F1B /* DescriptionView.swift in Sources */,
 				789553242C52478A00C43F1B /* DetailViewController.swift in Sources */,
+				78B155A52C573E4E00EC9102 /* CreditSection.swift in Sources */,
 				7895530B2C514A4900C43F1B /* MovieAPI.swift in Sources */,
 				789553222C52436B00C43F1B /* MovieDetail.swift in Sources */,
 				789553202C5242DB00C43F1B /* DetailViewModel.swift in Sources */,
